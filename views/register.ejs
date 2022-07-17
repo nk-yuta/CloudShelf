@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+        <%- include('./header'); %>
+    
+    <body>
+        <div class="container">
+            
+            <div class="row m-2">
+                <h1>書籍登録</h1>
+                <form action="/register/search-isbn" method="POST">
+                    <div class="col-auto">
+                        <label class="form-label">ISBN</label>
+                        <input class="form-control" type="text" name="isbn">    
+                         
+                    </div>
+                    <button class="btn btn-primary mt-2" type="submit">検索</button>   
+                        
+                </form>
+            </div>
+        </div>
+            
+            
+        <% if (typeof item !== "undefined" ) { %>
+        <div class="container">
+            <div class="row m-2">
+                <p>以下のアイテムが見つかりました。</p>
+                <!-- <p>追加したISBN: <%= isbn %></p> -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">書影</th>
+                            <th scope="col">タイトル</th>
+                            <th scope="col">著者</th>
+                            <th scope="col">出版社</th>
+                            <th scope="col">楽天Books</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row"></th>
+                            <td><img src="<%= item[0].Item.largeImageUrl %>" alt=""></td>
+                            <td><%= item[0].Item.title %></td>
+                            <td><%= item[0].Item.author %></td>
+                            <td><%= item[0].Item.publisherName %></td>
+                            <td><a href="<%= item[0].Item.itemUrl %>"><%= item[0].Item.itemUrl %><a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- <div>
+                    <p>タイトル:<%= item[0].Item.title %></p>
+                    <p>著者: <%= item[0].Item.author %></p>
+                    <p>出版社: <%= item[0].Item.publisherName %></p>
+                    <p>URL: <a href="<%= item[0].Item.itemUrl %>">楽天Booksリンク</a></p>
+                    <p><img src="<%= item[0].Item.largeImageUrl %>" alt=""></p>
+                </div> -->
+                <% } %>
+            </div>
+        
+        
+            <% if (typeof item !== "undefined" ) { %>
+            <form action="/register/register-book" method="POST">
+                <div class="col-auto">
+                    <label>
+                        <% if (typeof isbn !== "undefined" ) { %>
+                        <input type="hidden" name="isbn" value="<%= isbn %>" >
+                        <% } %>
+                        上記の内容を登録します。よろしいですか？
+                    </label>
+                    
+                </div>
+                <button class="btn btn-primary mt-2" type="submit">登録</button>
+            </form>
+            <% } %>
+        </div>
+
+
+    </body>
+</html>

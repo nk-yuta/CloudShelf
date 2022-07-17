@@ -1,0 +1,38 @@
+<html lang="ja">
+    <%- include('./header'); %>
+<body>
+    <div class="container">
+        <h1>登録された書籍一覧</h1>
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">書影</th>
+                        <th scope="col">タイトル</th>
+                        <th scope="col">著者</th>
+                        <th scope="col">出版社</th>
+                        <th scope="col">楽天Books</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% registerdbooks.forEach(book => { %>
+                    <tr>
+                        <th scope="row"></th>
+                        <td><img src="<%= book.rakuten_img_url %>" alt=""></td>
+                        <td><%= book.title %></td>
+                        <td><%= book.author %></td>
+                        <td><%= book.publisher %></td>
+                        <td><a href="<%= book.rakuten_url %>"><%= book.rakuten_url %><a></td>
+                        
+                    </tr>
+                    <% }); %>
+                </tbody> 
+            </table>
+        </div>
+    </div>
+    
+
+
+</body>
+</html>
