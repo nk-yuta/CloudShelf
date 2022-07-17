@@ -1,8 +1,11 @@
 const axios = require('axios');
+require('dotenv').config()
 
 exports.callBooksAPI = function (isbn) {
+    const env = process.env;
+    //console.log(env.RAKUTEN_APP_ID);
     const url = "https://app.rakuten.co.jp/services/api/BooksTotal/Search/20170404?format=json&";
-    const appid = "applicationId=***REMOVED***&";
+    const appid = "applicationId=" + env.RAKUTEN_APP_ID + "&";
 
     const req_url = url + appid + "isbnjan=" + isbn;
     //console.log(req_url);
