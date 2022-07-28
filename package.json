@@ -4,7 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "npm-run-all --parallel start:*",
+    "start": "node main.js",
+    "dev": "npm-run-all --parallel start:*",
     "start:nodemon": "nodemon ./bin/www",
     "start:sync": "browser-sync start --config bs-config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
