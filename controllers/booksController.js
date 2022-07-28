@@ -48,7 +48,24 @@ exports.saveBook = (req, res) => {
     //     publisher: req.body.publisher,
     //     rakuten_url: req.body.rakuten_url,
     //     rakuten_img_url: req.body.rakuten_img_url
-    // });
-
-    
+    // });    
 };
+
+exports.deleteBook = (req, res) => {
+    const isbn = req.body.isbn;
+    Book.find(
+        {isbn: isbn}
+    , 'isbn', function(err, book){
+        const id = book[0]._id;
+        console.log(book[0]._id);
+        Book.findByIdAndDelete(id)
+        .then(() => {
+            res.locals.redirect = "/books";
+        })
+        .catch(error => {
+            console.log("error happend when delete book.");
+            console.log(error.meessage);
+        })
+    });
+    
+}

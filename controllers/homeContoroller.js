@@ -17,6 +17,14 @@ exports.showIndex = (req, res) => {
     res.render("index");
 }
 
+exports.showSignin = (req, res) => {
+    res.render("signin");
+}
+
+exports.showSignup = (req, res) => {
+    res.render("signup");
+}
+
 exports.showBooks = (req, res) => {
     res.render("books", {
         registerdBooks: books
