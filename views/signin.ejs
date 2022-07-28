@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <%- include('./header'); %>
+    <body>
+        <div class="container">
+            <div class="row">
+                <h1>サインイン</h1>
+                <form action="/signin" method="POST">
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">メールアドレス</label>
+                      <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">パスワード</label>
+                      <input type="password" class="form-control" name="password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">サインイン</button>
+                  </form>
+                  <p>
+                    アカウントを持っていない場合，こちらから<a href="/signup">サインアップ</a>できます。
+                </p>
+            </div>
+            
+        </div>
+        
+        
+        
+    </body>
+
+</html>

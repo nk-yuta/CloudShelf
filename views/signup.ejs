@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <%- include('./header'); %>
+    <body>
+        <div class="container">
+            <div class="row">
+                <h1>サインアップ</h1>
+                <form action="/signup" method="POST">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">ユーザーネーム</label>
+                        <input type="text" class="form-control" id="name" aria-describedby="emailHelp">
+                      </div>
+                    <div class="mb-3">
+                      <label for="email" class="form-label">メールアドレス</label>
+                      <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                      <label for="password" class="form-label">パスワード</label>
+                      <input type="password" class="form-control" id="password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">登録</button>
+                  </form>
+                  <p>
+                </p>
+            </div>
+            
+        </div>
+        
+        
+        
+    </body>
+
+</html>

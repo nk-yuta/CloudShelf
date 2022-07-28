@@ -13,6 +13,7 @@
                         <th scope="col">著者</th>
                         <th scope="col">出版社</th>
                         <th scope="col">楽天Books</th>
+                        <th scope="col">データの削除</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,6 +25,11 @@
                         <td><%= book.author %></td>
                         <td><%= book.publisher %></td>
                         <td><a href="<%= book.rakuten_url %>"><%= book.rakuten_url %><a></td>
+                        <td><form action="/register/delete-book" method="POST">
+                            <input type="hidden" name="isbn" value="<%= book.isbn %>" >
+                            <button class="btn btn-primary mt-2" type="submit" onclick="return confirm('削除しますか?')">削除</button>   
+                                
+                        </form></td>
                         
                     </tr>
                     <% }); %>
