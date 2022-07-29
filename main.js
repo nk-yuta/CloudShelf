@@ -1,4 +1,5 @@
-
+require('dotenv').config()
+const env = process.env;
 
 const express = require("express"),
     app = express();
@@ -26,9 +27,11 @@ const sess = {
 }
 app.use(session(sess));
 
+const mongodb_uri = env.MONGODB_URI;
 mongoose.connect(
-    "mongodb://localhost:27017/book_db",
-    {useNewUrlParser: true}
+    mongodb_uri,
+    {useNewUrlParser: true,
+     useUnifiedTopology: true}
 );
 const db = mongoose.connection;
 db.prependOnceListener("open", () => {
